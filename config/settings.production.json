@@ -14,7 +14,7 @@
   },
   "galaxy.meteor.com": {
     "env": {
-      "MONGO_URL": "mongodb://testuser:testpassword@ds151820.mlab.com:51820/testdeploy"
+      "MONGO_URL": "mongodb://jordanoo:Jo114335!@ds155325.mlab.com:55325/jordanootest"
     }
   }
 }
