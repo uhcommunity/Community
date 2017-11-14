@@ -1,66 +1,58 @@
 <template name="Landing_Page">
-  <div class="container">
-
-    <div class="ui middle aligned centered grid">
-      <div class="ui segment overlay inverted centered">
-          <hr>
-          <h1 class="header">COMMUNITY</h1>
-          <hr>
-          <button class="ui grey button">Discover You</button>
+  <div id="particles-js" class="ui inverted vertical center aligned segment">
+    <div class="ui container">
+      <div class="ui massive borderless inverted menu">
+        <h1 class="header item">
+          Community
+        </h1>
+        <div class="right item">
+          <div class="ui massive secondary inverted pointing menu">
+            <a class="active item">Home</a>
+            <a class="item">Feature</a>
+            <a class="item">Contact</a>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="buildings container">
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
-      <div class="building"></div>
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+        Join the Community
+      </h1>
+      <p>
+        Lorem Ipsum
+      </p>
+      <div class="ui massive white button">
+        Learn more
+      </div>
+    </div>
+    <div class="ui inverted vertical footer segment">
+      Lorem Ipsum
     </div>
   </div>
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide column">
+          <h3 class="ui header">We Help Companies and Companions</h3>
+          <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
+          <h3 class="ui header">We Make Bananas That Can Dance</h3>
+          <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+        </div>
+        <div class="six wide right floated column">
+          <img src="http://lorempixel.com/150/150/" class="ui large bordered rounded image">
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui huge button">Check Them Out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="particles.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'pjs-settings.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+  </script>
 </template>
