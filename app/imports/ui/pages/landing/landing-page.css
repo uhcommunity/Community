@@ -1,36 +1,209 @@
-.landing-section-1 {
-  padding: 10px 10px 30px 10px;
-  background-color: #00B5AD;
-  color: #E5F9E7;
+body {
+  background: #333;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 
-.landing-section-2 {
-  padding: 20px 10px 20px 10px;
-  background-color: #E5F9E7;
-  color:  #00B5AD;
+.ui.middle {
+  margin-top: 33vh;
 }
 
-.landing-section-3 {
-  padding: 20px 10px 30px 30px;
-  background-color: #00B5AD;
-  color: #E5F9E7;
+.overlay {
+  z-index: 100;
+  opacity: 0.7;
 }
 
-.landing-section-5 {
-  padding: 20px 10px 20px 10px;
-  background-color: #00B5AD;
-  color: #E5F9E7;
+.buildings {
+  margin-left: 50%;
 }
 
-
-.landing-section-1-welcome {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  font-size: 72px;
+.building {
+  position: absolute;
+  height: 100vw;
+  animation: glow 4s infinite;
 }
 
-.landing-section-header {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  font-size: 36px;
+.building:nth-child(1) {
+  left: 3.5vw;
+  box-shadow: 0 -10px 40px #87b5eb;
+  animation-delay: 9.15s;
+  top: 73vh;
+  width: 7vw;
+  background-color: #87b5eb;
+}
+
+.building:nth-child(2) {
+  left: 8.5vw;
+  box-shadow: 0 -10px 40px #879ceb;
+  animation-delay: 8.75s;
+  top: 45vh;
+  width: 5vw;
+  background-color: #879ceb;
+}
+
+.building:nth-child(3) {
+  left: 13.5vw;
+  box-shadow: 0 -10px 40px #8b87eb;
+  animation-delay: 9.29s;
+  top: 36vh;
+  width: 5vw;
+  background-color: #8b87eb;
+}
+
+.building:nth-child(4) {
+  left: 18.5vw;
+  box-shadow: 0 -10px 40px #a487eb;
+  animation-delay: 8.88s;
+  top: 57vh;
+  width: 5vw;
+  background-color: #a487eb;
+}
+
+.building:nth-child(5) {
+  left: 23.5vw;
+  box-shadow: 0 -10px 40px #bd87eb;
+  animation-delay: 3.98s;
+  top: 11vh;
+  width: 7vw;
+  background-color: #bd87eb;
+}
+
+.building:nth-child(6) {
+  left: 28.5vw;
+  box-shadow: 0 -10px 40px #d687eb;
+  animation-delay: 3.84s;
+  top: 43vh;
+  width: 8vw;
+  background-color: #d687eb;
+
+}
+
+.building:nth-child(7) {
+  left: 33.5vw;
+  box-shadow: 0 -10px 40px #eb87e7;
+  animation-delay: 4.61s;
+  top: 50vh;
+  width: 12vw;
+  background-color: #eb87e7;
+}
+
+.building:nth-child(8) {
+  left: 38.5vw;
+  box-shadow: 0 -10px 40px #eb87ce;
+  animation-delay: 6.39s;
+  top: 41vh;
+  width: 4vw;
+  background-color: #eb87ce;
+}
+
+.building:nth-child(9) {
+  left: 43.5vw;
+  box-shadow: 0 -10px 40px #eb87b5;
+  animation-delay: 7.35s;
+  top: 19vh;
+  width: 10vw;
+  background-color: #eb87b5;
+}
+
+.building:nth-child(10) {
+  left: 48.5vw;
+  box-shadow: 0 -10px 40px #eb879c;
+  animation-delay: 8.6s;
+  top: 40vh;
+  width: 13vw;
+  background-color: #eb879c;
+}
+
+.building:nth-child(11) {
+  left: 53.5vw;
+  box-shadow: 0 -10px 40px #eb8b87;
+  animation-delay: 5.82s;
+  top: 70vh;
+  width: 4vw;
+  background-color: #eb8b87;
+}
+
+.building:nth-child(12) {
+  left: 58.5vw;
+  box-shadow: 0 -10px 40px #eba487;
+  animation-delay: 9.69s;
+  top: 6vh;
+  width: 5vw;
+  background-color: #eba487;
+}
+
+.building:nth-child(13) {
+  left: 63.5vw;
+  box-shadow: 0 -10px 40px #ebbd87;
+  animation-delay: 9.2s;
+  top: 65vh;
+  width: 9vw;
+  background-color: #ebbd87;
+}
+
+.building:nth-child(14) {
+  left: 68.5vw;
+  box-shadow: 0 -10px 40px #ebd687;
+  animation-delay: 4.09s;
+  top: 23vh;
+  width: 7vw;
+  background-color: #ebd687;
+}
+
+.building:nth-child(15) {
+  left: 73.5vw;
+  box-shadow: 0 -10px 40px #e7eb87;
+  animation-delay: 9.5s;
+  top: 85vh;
+  width: 6vw;
+  background-color: #e7eb87;
+}
+
+.building:nth-child(16) {
+  left: 78.5vw;
+  box-shadow: 0 -10px 40px #ceeb87;
+  animation-delay: 2.02s;
+  top: 85vh;
+  width: 6vw;
+  background-color: #ceeb87;
+}
+
+.building:nth-child(17) {
+  left: 83.5vw;
+  box-shadow: 0 -10px 40px #b5eb87;
+  animation-delay: 8.03s;
+  top: 70vh;
+  width: 5vw;
+  background-color: #b5eb87;
+}
+
+.building:nth-child(18) {
+  left: 88.5vw;
+  box-shadow: 0 -10px 40px #9ceb87;
+  animation-delay: 4.64s;
+  top: 59vh;
+  width: 13vw;
+  background-color: #9ceb87;
+}
+
+.building:nth-child(19) {
+  left: 93.5vw;
+  box-shadow: 0 -10px 40px #87eb8b;
+  animation-delay: 0.95s;
+  top: 7vh;
+  width: 11vw;
+  background-color: #87eb8b;
+}
+
+@keyframes glow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
