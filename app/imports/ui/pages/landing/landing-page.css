@@ -38,12 +38,15 @@
   color: gray;
 }
 
+.ui.inverted.vertical.footer.segment {
+  opacity: 0;
+}
 .ui.inverted.vertical.segment .ui.footer.segment a {
   color: white;
 }
 
 .ui.vertical.stripe {
-  padding: 8em 0em;
+  padding: 4em 0em;
 }
 
 .ui.vertical.stripe h3 {
