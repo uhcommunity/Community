@@ -1,36 +1,60 @@
-.landing-section-1 {
-  padding: 10px 10px 30px 10px;
-  background-color: #00B5AD;
-  color: #E5F9E7;
+.ui.inverted.vertical.segment {
+  height: 80vh;
 }
 
-.landing-section-2 {
-  padding: 20px 10px 20px 10px;
-  background-color: #E5F9E7;
-  color:  #00B5AD;
+.ui.inverted.vertical.segment h1.header.item {
+  font-size: 2em;
 }
 
-.landing-section-3 {
-  padding: 20px 10px 30px 30px;
-  background-color: #00B5AD;
-  color: #E5F9E7;
+.ui.inverted.vertical.segment a.item {
+  font-size: 1.2em;
 }
 
-.landing-section-5 {
-  padding: 20px 10px 20px 10px;
-  background-color: #00B5AD;
-  color: #E5F9E7;
+.ui.inverted.vertical.segment .ui.text.container {
+  height: 300px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
-
-.landing-section-1-welcome {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  font-size: 72px;
+.ui.inverted.vertical.segment .ui.text.container h1.header {
+  font-size: 3em;
 }
 
-.landing-section-header {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  font-size: 36px;
+.ui.inverted.vertical.segment .ui.text.container p {
+  font-size: 1.6em;
+  line-height: 1.6;
+}
+
+.ui.inverted.vertical.segment .ui.footer.segment {
+  height: 80px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  font-size: 1.2em;
+  color: gray;
+}
+
+.ui.inverted.vertical.footer.segment {
+  opacity: 0;
+}
+.ui.inverted.vertical.segment .ui.footer.segment a {
+  color: white;
+}
+
+.ui.vertical.stripe {
+  padding: 4em 0em;
+}
+
+.ui.vertical.stripe h3 {
+  font-size: 2em;
+}
+
+.ui.vertical.segment {
+  margin: 0em;
+  padding-left: 0em;
+  padding-right: 0em;
 }
