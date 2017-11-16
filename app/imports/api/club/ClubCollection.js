@@ -32,7 +32,7 @@ class ClubCollection extends BaseCollection {
   }
 
   /**
-   * Defines a new Profile.
+   * Defines a new Club.
    * @example
    * Profiles.define({ firstName: 'Philip',
    *                   lastName: 'Johnson',
@@ -52,15 +52,14 @@ class ClubCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define({ firstName = '', lastName = '', username, bio = '', interests = [], picture = '', title = '', github = '',
+  define({ clubName, clubDescription = '', interests = [], picture = '', github = '',
            facebook = '', instagram = '' }) {
     // make sure required fields are OK.
-    const checkPattern = { firstName: String, lastName: String, username: String, bio: String, picture: String,
-      title: String };
-    check({ firstName, lastName, username, bio, picture, title }, checkPattern);
+    const checkPattern = { clubName: String, clubDescription: String, picture: String };
+    check({ clubName, clubDescription, picture }, checkPattern);
 
-    if (this.find({ username }).count() > 0) {
-      throw new Meteor.Error(`${username} is previously defined in another Profile`);
+    if (this.find({ clubName }).count() > 0) {
+      throw new Meteor.Error(`${clubName} is previously defined in another Club`);
     }
 
     // Throw an error if any of the passed Interest names are not defined.
@@ -71,32 +70,29 @@ class ClubCollection extends BaseCollection {
       throw new Meteor.Error(`${interests} contains duplicates`);
     }
 
-    return this._collection.insert({ firstName, lastName, username, bio, interests, picture, title, github,
+    return this._collection.insert({ clubName, clubDescription, interests, picture, github,
       facebook, instagram });
   }
 
   /**
-   * Returns an object representing the Profile docID in a format acceptable to define().
-   * @param docID The docID of a Profile.
+   * Returns an object representing the Club docID in a format acceptable to define().
+   * @param docID The docID of a Club.
    * @returns { Object } An object representing the definition of docID.
    */
   dumpOne(docID) {
     const doc = this.findDoc(docID);
-    const firstName = doc.firstName;
-    const lastName = doc.lastName;
-    const username = doc.username;
-    const bio = doc.bio;
+    const clubName = doc.clubName;
+    const clubDescription = doc.clubDescription;
     const interests = doc.interests;
     const picture = doc.picture;
-    const title = doc.title;
     const github = doc.github;
     const facebook = doc.facebook;
     const instagram = doc.instagram;
-    return { firstName, lastName, username, bio, interests, picture, title, github, facebook, instagram };
+    return { clubName, clubDescription, interests, picture, github, facebook, instagram };
   }
 }
 
 /**
  * Provides the singleton instance of this class to all other entities.
  */
-export const Profiles = new ProfileCollection();
+export const Clubs = new ClubCollection();
