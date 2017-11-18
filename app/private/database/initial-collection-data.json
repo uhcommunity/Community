@@ -145,6 +145,19 @@
           "picture": "/images/casanova.jpg"
         }
       ]
+    },
+    {
+      "name": "ClubCollection",
+      "contents": [
+        {
+          "clubName": "Grey Hats at UHM",
+          "clubDescription": "A club with grey hats.",
+          "interests": [
+            "Surfing",
+            "Photography"
+          ]
+        }
+      ]
     }
   ]
 }
