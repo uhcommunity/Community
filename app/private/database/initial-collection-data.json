@@ -156,6 +156,42 @@
             "Surfing",
             "Photography"
           ]
+        },
+
+        {
+          "clubName": "Surf Team at the University of Hawaii at Manoa",
+          "clubDescription": "A club with surfers.",
+          "interests": [
+            "Surfing",
+            "Photography"
+          ]
+        },
+
+        {
+          "clubName": "Lotus",
+          "clubDescription": "A club with lotus.",
+          "interests": [
+            "Surfing",
+            "Photography"
+          ]
+        },
+
+        {
+          "clubName": "Love Your Melon",
+          "clubDescription": "A club with melons.",
+          "interests": [
+            "Surfing",
+            "Photography"
+          ]
+        },
+
+        {
+          "clubName": "Engineering Ohana",
+          "clubDescription": "A club with engineers.",
+          "interests": [
+            "Surfing",
+            "Photography"
+          ]
         }
       ]
     }
