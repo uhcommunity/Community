@@ -32,7 +32,7 @@ sacha:spin
 accounts-ui@1.1.9
 accounts-password@1.4.0
 atoy40:accounts-cas
-random@1.0.10
+random
 
 # Routing
 kadira:flow-router

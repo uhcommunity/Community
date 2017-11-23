@@ -5,27 +5,27 @@
       "name": "InterestCollection",
       "contents": [
         {
-          "name": "Software Engineering",
+          "name": "Academic",
           "description": "Techniques for development of high quality systems"
         },
         {
-          "name": "Algorithms",
+          "name": "Sports",
           "description": "A set of rules to be followed in computation"
         },
         {
-          "name": "Mobile Networks",
+          "name": "Religious",
           "description": "Networks created using mobile devices."
         },
         {
-          "name": "Sailing",
+          "name": "Cultural",
           "description": ""
         },
         {
-          "name": "Mars",
+          "name": "Student Affairs",
           "description": ""
         },
         {
-          "name": "Imu Cooking",
+          "name": "Computer",
           "description": "Hawaiian practice of cooking in a pit."
         },
         {
@@ -86,60 +86,59 @@
       "name": "ProfileCollection",
       "contents": [
         {
-          "firstName": "Lee",
+          "firstName": "Association for Computing Machinery at UH Manoa",
           "lastName": "Altenberg",
           "username": "altenber",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "bio": "The world's premier society whose mission is the advancement of computing as a science and profession.",
           "interests": [
-            "Evolutionary Computation"
+            "Computer"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/altenberg.jpg"
+          "location": "Honolulu, HI",
+          "picture": "/images/acm.jpg"
         },
         {
-          "firstName": "Kyungim",
+          "firstName": "GreyHats UHM",
           "lastName": "Baek",
           "username": "baek",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "bio": "The ICS Grey Hats is a student-led, extracurricular organization focused on real-world training for cyber defense. Membership gives students an outstanding opportunity to learn and apply critical skills, and to share with others interested in modern security issues.",
           "interests": [
-            "Computer Vision"
+            "Computer"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/baek.jpg"
+          "location": "Honolulu, HI",
+          "picture": "/images/greyhats.png"
         },
         {
-          "firstName": "Edo",
+          "firstName": "Accounting Club",
           "lastName": "Biagioni",
           "username": "esb",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "bio": "In cooperation with the School of Accountancy, we provide additional perspectives and supplemental information concerning public, private, and governmental accounting through carefully planned social and business-oriented events.",
           "interests": [
-            "Mobile Networks",
-            "Sailing"
+            "Academic"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/biagioni.jpg"
+          "picture": "/images/acuh.png"
         },
         {
-          "firstName": "Kim",
+          "firstName": "International Student Association",
           "lastName": "Binsted",
           "username": "binsted",
-          "bio": "I am an Associate Professor of Information and Computer Sciences at the University of Hawaii.",
+          "bio": "International Student Association (ISA–2003-present) were established with a common goal: To provide a support system for international students attending the University of Hawai’i.",
           "interests": [
-            "Mars",
-            "Imu Cooking"
+            "Student Affairs"
           ],
           "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/binsted.jpg"
+          "picture": "/images/isa.jpg"
         },
         {
-          "firstName": "Henri",
+          "firstName": "Cycle Club at University of Hawaii at Manoa",
           "lastName": "Casanova",
           "username": "henric",
           "github": "henricasanova",
-          "bio": "I am a Professor of Information and Computer Sciences at the University of Hawaii.",
+          "bio": "The Cycling Club at the University of Hawaii at Manoa's goal is to advocate, promote, and compete in competitive cycling races on the local and national scene.",
           "interests": [
-            "Surfing",
-            "Photography"
+            "Sports"
           ],
           "title": "Professor, Information and Computer Sciences",
           "picture": "/images/casanova.jpg"
