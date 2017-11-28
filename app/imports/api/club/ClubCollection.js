@@ -19,7 +19,8 @@ class ClubCollection extends BaseCollection {
    */
   constructor() {
     super('Club', new SimpleSchema({
-      clubName: { type: String },
+      username: { type: String },
+      clubName: { type: String, optional: true },
       // Remainder are optional
       clubDescription: { type: String, optional: true },
       interests: { type: Array, optional: true },
@@ -52,10 +53,10 @@ class ClubCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define({ clubName, clubDescription = '', interests = [], picture = '', github = '',
+  define({ username, clubName = '', clubDescription = '', interests = [], picture = '', github = '',
            facebook = '', instagram = '' }) {
     // make sure required fields are OK.
-    const checkPattern = { clubName: String, clubDescription: String, picture: String };
+    const checkPattern = { username: String, clubName: String, clubDescription: String, picture: String };
     check({ clubName, clubDescription, picture }, checkPattern);
 
     if (this.find({ clubName }).count() > 0) {
@@ -70,7 +71,7 @@ class ClubCollection extends BaseCollection {
       throw new Meteor.Error(`${interests} contains duplicates`);
     }
 
-    return this._collection.insert({ clubName, clubDescription, interests, picture, github,
+    return this._collection.insert({ clubName, clubDescription, username, interests, picture, github,
       facebook, instagram });
   }
 
@@ -83,12 +84,13 @@ class ClubCollection extends BaseCollection {
     const doc = this.findDoc(docID);
     const clubName = doc.clubName;
     const clubDescription = doc.clubDescription;
+    const username = doc.username;
     const interests = doc.interests;
     const picture = doc.picture;
     const github = doc.github;
     const facebook = doc.facebook;
     const instagram = doc.instagram;
-    return { clubName, clubDescription, interests, picture, github, facebook, instagram };
+    return { clubName, clubDescription, username, interests, picture, github, facebook, instagram };
   }
 }
 

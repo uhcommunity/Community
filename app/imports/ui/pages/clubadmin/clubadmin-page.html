@@ -4,12 +4,12 @@
 
   <div class="ui text container segment">
     <div class="ui dividing header">
-      Profile
+      Club
     </div>
     <form class="ui equal width form club-data-form {{ successClass }} {{ errorClass }}">
 
       <div class="fields">
-        {{> Text_Form_Control label="Club Name" placeholder="Club Name" value=club.clubName errorMessage=(fieldError "clubName")}}
+        {{> Text_Form_Control label="ClubName" placeholder="Club Name" value=club.clubName errorMessage=(fieldError "clubName")}}
       </div>
 
       <div class="field">
@@ -28,13 +28,13 @@
 
       </div>
 
-      {{> TextArea_Form_Control label="Club Description" value=club.clubDescription placeholder="Club Description" errorMessage=(fieldError "clubDescription")}}
+      {{> TextArea_Form_Control label="ClubDescription" value=club.clubDescription placeholder="Club Description" errorMessage=(fieldError "clubDescription")}}
 
 
       <button class="ui primary button" type="submit">Submit</button>
       {{#if displaySuccessMessage}}
       <div class="ui success message">
-        <p>Profile data successfully updated.</p>
+        <p>Club data successfully updated.</p>
       </div>
       {{/if}}
     </form>

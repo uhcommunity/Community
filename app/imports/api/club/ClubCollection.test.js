@@ -11,6 +11,7 @@ if (Meteor.isServer) {
   describe('ClubCollection', function testSuite() {
     const interestName = 'Software Engineering';
     const interestDescription = 'Tools for software development';
+    const username = 'jordanoo'
     const clubName = 'johnson';
     const clubDescription = 'I have been a professor of computer science at UH since 1990.';
     const interests = [interestName];
@@ -18,7 +19,7 @@ if (Meteor.isServer) {
     const github = 'http://github.com/philipjohnson';
     const facebook = 'http://github.com/philipjohnson';
     const instagram = 'http://github.com/philipjohnson';
-    const defineObject = { clubName, clubDescription, interests, picture, github, facebook, instagram };
+    const defineObject = { clubName, clubDescription, username, interests, picture, github, facebook, instagram };
 
     before(function setup() {
       removeAllEntities();
@@ -37,6 +38,7 @@ if (Meteor.isServer) {
       const doc = Clubs.findDoc(docID);
       expect(doc.clubName).to.equal(clubName);
       expect(doc.clubDescription).to.equal(clubDescription);
+      expect(doc.username).to.equal(username);
       expect(doc.interests[0]).to.equal(interestName);
       expect(doc.picture).to.equal(picture);
       expect(doc.github).to.equal(github);
@@ -55,14 +57,14 @@ if (Meteor.isServer) {
 
     it('#define (illegal interest)', function test() {
       const illegalInterests = ['foo'];
-      const defineObject2 = { clubName, clubDescription, interests: illegalInterests, picture,
+      const defineObject2 = { clubName, username, clubDescription, interests: illegalInterests, picture,
         github, facebook, instagram };
       expect(function foo() { Clubs.define(defineObject2); }).to.throw(Error);
     });
 
     it('#define (duplicate interests)', function test() {
       const duplicateInterests = [interestName, interestName];
-      const defineObject3 = { clubName, clubDescription, interests: duplicateInterests, picture,
+      const defineObject3 = { clubName, username, clubDescription, interests: duplicateInterests, picture,
         github, facebook, instagram };
       expect(function foo() { Clubs.define(defineObject3); }).to.throw(Error);
     });
