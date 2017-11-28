@@ -68,6 +68,14 @@ userRoutes.route('/filter', {
   },
 });
 
+export const clubAdminPageRouteName = 'ClubAdmin_Page';
+userRoutes.route('/clubadmin', {
+  name: clubAdminPageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: clubAdminPageRouteName });
+  },
+});
+
 /*                        MISC ROUTES                       */
 FlowRouter.notFound = {
   action() {
