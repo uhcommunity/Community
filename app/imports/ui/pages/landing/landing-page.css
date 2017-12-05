@@ -1,5 +1,5 @@
 .ui.inverted.vertical.segment {
-  height: 80vh;
+  height: 100vh;
 }
 
 .ui.inverted.vertical.segment h1.header.item {
@@ -30,16 +30,19 @@
 }
 
 .ui.inverted.vertical.segment .ui.footer.segment {
-  height: 80px;
   width: 100%;
   position: absolute;
   bottom: 0;
   font-size: 1.2em;
   color: gray;
+  background: transparent;
+}
+.ui.horizontal.segments {
+  border: none;
 }
 
 .ui.inverted.vertical.footer.segment {
-  opacity: 0;
+  opacity: 1;
 }
 .ui.inverted.vertical.segment .ui.footer.segment a {
   color: white;
