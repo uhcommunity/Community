@@ -153,8 +153,7 @@
           "clubDescription": "A club with grey hats.",
           "username": "tcchong",
           "interests": [
-            "Surfing",
-            "Photography"
+            "Cybersecurity"
           ],
           "picture": "/images/greyhats.png"
         },
@@ -162,10 +161,10 @@
         {
           "clubName": "Association for Computing Machinery at UH Manoa",
           "clubDescription": "The world's premier society whose mission is the advancement of computing as a science and profession.",
-          "username": "tcchong",
+          "username": "jordanoo",
           "interests": [
-            "Surfing",
-            "Photography"
+            "Computer",
+            "Evolutionary Computation"
           ],
           "picture": "/images/acm.jpg"
         },
@@ -173,10 +172,10 @@
         {
           "clubName": "Accounting Club",
           "clubDescription": "In cooperation with the School of Accountancy, we provide additional perspectives and supplemental information concerning public, private, and governmental accounting through carefully planned social and business-oriented events.",
-          "username": "tcchong",
+          "username": "meow",
           "interests": [
-            "Surfing",
-            "Photography"
+            "Academic",
+            "Accreditation"
           ],
           "picture": "/images/acuh.png"
         },
@@ -184,7 +183,7 @@
         {
           "clubName": "International Student Association",
           "clubDescription": "International Student Association (ISA–2003-present) were established with a common goal: To provide a support system for international students attending the University of Hawai’i.",
-          "username": "tcchong",
+          "username": "aspacio",
           "interests": [
             "Surfing",
             "Photography"
@@ -194,7 +193,7 @@
         {
           "clubName": "Cycle Club at University of Hawaii at Manoa",
           "clubDescription": "The Cycling Club at the University of Hawaii at Manoa's goal is to advocate, promote, and compete in competitive cycling races on the local and national scene.",
-          "username": "tcchong",
+          "username": "test",
           "interests": [
             "Surfing",
             "Photography"
