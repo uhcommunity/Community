@@ -17,7 +17,7 @@ Template.ClubAdmin_Page.onCreated(function onCreated() {
   this.context = Clubs.getSchema().namedContext('ClubAdmin_Page');
 });
 
-Template.Club_Page.helpers({
+Template.ClubAdmin_Page.helpers({
   successClass() {
     return Template.instance().messageFlags.get(displaySuccessMessage) ? 'success' : '';
   },

@@ -6,9 +6,9 @@
     <div class="ui dividing header">
       Club
     </div>
-    <form class="ui equal width form club-data-form {{ successClass }} {{ errorClass }}">
+    <form class="ui equal width form clubadmin-data-form {{ successClass }} {{ errorClass }}">
 
-      <div class="fields">
+      <div class="field">
         {{> Text_Form_Control label="ClubName" placeholder="Club Name" value=club.clubName errorMessage=(fieldError "clubName")}}
       </div>
 

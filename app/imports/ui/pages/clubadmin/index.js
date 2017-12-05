@@ -1,2 +1,2 @@
 import './clubadmin-page.html';
-import './clubadmin-page';
+import './clubadmin-page.js';
