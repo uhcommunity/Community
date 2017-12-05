@@ -59,8 +59,8 @@ class ClubCollection extends BaseCollection {
     const checkPattern = { username: String, clubName: String, clubDescription: String, picture: String };
     check({ username, clubName, clubDescription, picture }, checkPattern);
 
-    if (this.find({ clubName }).count() > 0) {
-      throw new Meteor.Error(`${clubName} is previously defined in another Club`);
+    if (this.find({ username }).count() > 0) {
+      throw new Meteor.Error(`${username} is previously defined in another Club`);
     }
 
     // Throw an error if any of the passed Interest names are not defined.

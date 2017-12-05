@@ -5,6 +5,7 @@ import { Profiles } from '/imports/api/profile/ProfileCollection';
 
 
 let user;
+let club;
 
 Template.User_Header.onCreated(function onCreated() {
   this.subscribe(Profiles.getPublicationName());

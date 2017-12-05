@@ -14,7 +14,7 @@ Template.ClubAdmin_Page.onCreated(function onCreated() {
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
-  this.context = Clubs.getSchema().namedContext('Club_Page');
+  this.context = Clubs.getSchema().namedContext('ClubAdmin_Page');
 });
 
 Template.Club_Page.helpers({
@@ -28,10 +28,10 @@ Template.Club_Page.helpers({
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
   club() {
-    return Clubs.findDoc(FlowRouter.getParam('clubName'));
+    return Clubs.findDoc(FlowRouter.getParam('username'));
   },
   interests() {
-    const club = Clubs.findDoc(FlowRouter.getParam('clubName'));
+    const club = Clubs.findDoc(FlowRouter.getParam('username'));
     const selectedInterests = club.interests;
     return club && _.map(Interests.findAll(),
         function makeInterestObject(interest) {
@@ -41,7 +41,7 @@ Template.Club_Page.helpers({
 });
 
 Template.ClubAdmin_Page.events({
-  'submit .club-data-form'(event, instance) {
+  'submit .clubadmin-data-form'(event, instance) {
     event.preventDefault();
     const clubName = event.target.ClubName.value;
     const username = FlowRouter.getParam('username'); // schema requires username.
@@ -64,7 +64,7 @@ Template.ClubAdmin_Page.events({
     instance.context.validate(cleanData);
 
     if (instance.context.isValid()) {
-      const docID = Clubs.findDoc(FlowRouter.getParam('clubName'))._id;
+      const docID = Clubs.findDoc(FlowRouter.getParam('username'))._id;
       const id = Clubs.update(docID, { $set: cleanData });
       instance.messageFlags.set(displaySuccessMessage, id);
       instance.messageFlags.set(displayErrorMessages, false);
