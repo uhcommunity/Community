@@ -3,6 +3,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Session } from 'meteor/session'
 
 let user;
+let club;
 
 Template.User_Header.helpers({
   routeUserName() {
