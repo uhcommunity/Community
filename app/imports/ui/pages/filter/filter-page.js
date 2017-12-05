@@ -36,6 +36,9 @@ Template.Filter_Page.helpers({
     }
     // Find all clubs with the currently selected interests.
     const allClubs = Clubs.findAll();
+    if(Session.get('clubSearched')) {
+      return _.filter(allClubs, club => !club.clubName.toLowerCase().indexOf(Session.get('clubSearched').toLowerCase()));
+    }
     const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
     return _.filter(allClubs, club => _.intersection(club.interests, selectedInterests).length > 0);
   },
@@ -52,19 +55,9 @@ Template.Filter_Page.helpers({
 });
 
 Template.Filter_Page.events({
-  'submit .filter-data-form'(event, instance) {
+  'submit .recommended-column'(event, instance) {
     event.preventDefault();
-    const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.sel4ected);
+    const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
     instance.messageFlags.set(selectedInterestsKey, _.map(selectedOptions, (option) => option.value));
   },
-  'click .recommended-column'(event, instance) {
-    event.preventDefault();
-    let clubSearched = Session.get('clubSearched');
-    let clubList = new Array();
-    clubList[0] = clubSearched;
-    //  selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
-
-    instance.messageFlags.set(selectedInterestsKey, clubList);
-  },
 });
-

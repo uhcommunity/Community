@@ -151,51 +151,55 @@
         {
           "clubName": "Grey Hats at UHM",
           "clubDescription": "A club with grey hats.",
-          "username": "jordanoo",
+          "username": "tcchong",
           "interests": [
             "Surfing",
             "Photography"
-          ]
+          ],
+          "picture": "/images/greyhats.png"
         },
 
         {
-          "clubName": "Surf Team at the University of Hawaii at Manoa",
-          "clubDescription": "A club with surfers.",
-          "username": "jordanoy",
+          "clubName": "Association for Computing Machinery at UH Manoa",
+          "clubDescription": "The world's premier society whose mission is the advancement of computing as a science and profession.",
+          "username": "tcchong",
           "interests": [
             "Surfing",
             "Photography"
-          ]
+          ],
+          "picture": "/images/acm.jpg"
         },
 
         {
-          "clubName": "Lotus",
-          "clubDescription": "A club with lotus.",
-          "username": "jordanoz",
+          "clubName": "Accounting Club",
+          "clubDescription": "In cooperation with the School of Accountancy, we provide additional perspectives and supplemental information concerning public, private, and governmental accounting through carefully planned social and business-oriented events.",
+          "username": "tcchong",
           "interests": [
             "Surfing",
             "Photography"
-          ]
+          ],
+          "picture": "/images/acuh.png"
         },
 
         {
-          "clubName": "Love Your Melon",
-          "clubDescription": "A club with melons.",
-          "username": "jordanog",
+          "clubName": "International Student Association",
+          "clubDescription": "International Student Association (ISA–2003-present) were established with a common goal: To provide a support system for international students attending the University of Hawai’i.",
+          "username": "tcchong",
           "interests": [
             "Surfing",
             "Photography"
-          ]
+          ],
+          "picture": "/images/isa.jpg"
         },
-
         {
-          "clubName": "Engineering Ohana",
-          "clubDescription": "A club with engineers.",
-          "username": "jordanop",
+          "clubName": "Cycle Club at University of Hawaii at Manoa",
+          "clubDescription": "The Cycling Club at the University of Hawaii at Manoa's goal is to advocate, promote, and compete in competitive cycling races on the local and national scene.",
+          "username": "tcchong",
           "interests": [
             "Surfing",
             "Photography"
-          ]
+          ],
+          "picture": "/images/cycle.jpg"
         }
       ]
     }

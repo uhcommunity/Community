@@ -1,9 +1,5 @@
-body {
-  overflow-y: hidden;
-}
-
 .ui.inverted.vertical.segment {
-  height: 100vh;
+  height: 100%;
 }
 
 .ui.inverted.vertical.segment h1.header.item {
@@ -34,6 +30,7 @@ body {
 }
 
 .ui.inverted.vertical.segment .ui.footer.segment {
+  margin-bottom: 5%;
   width: 100%;
   position: absolute;
   bottom: 0;

@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
+import { Session } from 'meteor/session';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
@@ -28,6 +29,7 @@ Template.Profile_Page.helpers({
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
   profile() {
+    Session.set('interests', Profiles.findDoc(FlowRouter.getParam('username')).interests);
     return Profiles.findDoc(FlowRouter.getParam('username'));
   },
   interests() {
@@ -49,14 +51,13 @@ Template.Profile_Page.events({
     const title = event.target.Title.value;
     const username = FlowRouter.getParam('username'); // schema requires username.
     const picture = event.target.Picture.value;
-    const github = event.target.Github.value;
     const facebook = event.target.Facebook.value;
     const instagram = event.target.Instagram.value;
     const bio = event.target.Bio.value;
     const selectedInterests = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
     const interests = _.map(selectedInterests, (option) => option.value);
 
-    const updatedProfileData = { firstName, lastName, title, picture, github, facebook, instagram, bio, interests,
+    const updatedProfileData = { firstName, lastName, title, picture, facebook, instagram, bio, interests,
       username };
 
     // Clear out any old validation errors.
@@ -77,4 +78,3 @@ Template.Profile_Page.events({
     }
   },
 });
-

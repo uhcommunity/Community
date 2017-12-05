@@ -11,20 +11,16 @@
         </div>
       </div>
     </div>
-    <div style="border: 1px solid #e6e6e6" class="ui four wide column recommended-column">
-      <h2 class="ui header">Recommended</h2>
-    </div>
+    <form style="border: 1px solid #e6e6e6" class="ui four wide column recommended-column">
+      <div class="field">
+        {{> Select_Form_Control label="Interests" options=interests multiple=true }}
+      </div>
+      <button class="ui teal button" type="submit">Filter</button>
+    </form>
 
     <div style="margin-top: 10px" class="ui sixteen wide column">
 
-      <!--<form class="ui equal width form filter-data-form">
-        <div class="field">
-          {{> Select_Form_Control label="Interests" options=interests multiple=true }}
-        </div>
-        <button class="ui teal button" type="submit">Filter</button>
-      </form>-->
-
-      {{> Filter_Page_Directory profiles=profiles }}
+      {{> Filter_Page_Directory profiles=clubs }}
 
     </div>
   </div>

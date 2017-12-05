@@ -53,11 +53,11 @@ class ClubCollection extends BaseCollection {
    * if one or more interests are not defined, or if github, facebook, and instagram are not URLs.
    * @returns The newly created docID.
    */
-  define({ username, clubName = '', clubDescription = '', interests = [], picture = '', github = '',
+  define({ username = '', clubName = '', clubDescription = '', interests = [], picture = '',
            facebook = '', instagram = '' }) {
     // make sure required fields are OK.
     const checkPattern = { username: String, clubName: String, clubDescription: String, picture: String };
-    check({ clubName, clubDescription, picture }, checkPattern);
+    check({ username, clubName, clubDescription, picture }, checkPattern);
 
     if (this.find({ clubName }).count() > 0) {
       throw new Meteor.Error(`${clubName} is previously defined in another Club`);
@@ -71,7 +71,7 @@ class ClubCollection extends BaseCollection {
       throw new Meteor.Error(`${interests} contains duplicates`);
     }
 
-    return this._collection.insert({ clubName, clubDescription, username, interests, picture, github,
+    return this._collection.insert({ clubName, clubDescription, username, interests, picture,
       facebook, instagram });
   }
 
@@ -87,10 +87,9 @@ class ClubCollection extends BaseCollection {
     const username = doc.username;
     const interests = doc.interests;
     const picture = doc.picture;
-    const github = doc.github;
     const facebook = doc.facebook;
     const instagram = doc.instagram;
-    return { clubName, clubDescription, username, interests, picture, github, facebook, instagram };
+    return { clubName, clubDescription, username, interests, picture, facebook, instagram };
   }
 }
 
