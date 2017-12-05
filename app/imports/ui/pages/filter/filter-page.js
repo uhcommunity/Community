@@ -4,6 +4,7 @@ import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Clubs } from '/imports/api/club/ClubCollection';
+import { Session } from 'meteor/session'
 
 
 const selectedInterestsKey = 'selectedInterests';
@@ -25,6 +26,7 @@ Template.Filter_Page.helpers({
     // Find all profiles with the currently selected interests.
     const allProfiles = Profiles.findAll();
     const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
+    console.log(selectedInterests);
     return _.filter(allProfiles, profile => _.intersection(profile.interests, selectedInterests).length > 0);
   },
   clubs() {
@@ -52,8 +54,17 @@ Template.Filter_Page.helpers({
 Template.Filter_Page.events({
   'submit .filter-data-form'(event, instance) {
     event.preventDefault();
-    const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
+    const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.sel4ected);
     instance.messageFlags.set(selectedInterestsKey, _.map(selectedOptions, (option) => option.value));
+  },
+  'click .recommended-column'(event, instance) {
+    event.preventDefault();
+    let clubSearched = Session.get('clubSearched');
+    let clubList = new Array();
+    clubList[0] = clubSearched;
+    //  selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
+
+    instance.messageFlags.set(selectedInterestsKey, clubList);
   },
 });
 

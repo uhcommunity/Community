@@ -1,5 +1,5 @@
 <template name="User_Header">
-  <div class="ui top fixed borderless inverted teal menu">
+  <div style="background-color: #21ba45" class="ui top fixed borderless inverted menu">
     <div class="ui container">
       <div class="item"><h1>Community</h1></div>
       <a class="{{isActiveRoute " Filter_Page"}} item" href="{{pathFor "Filter_Page"
@@ -7,13 +7,12 @@
       <div class="item">
         <div style="padding-right: 0px; margin: 5px !important" class="ui right action left icon input">
           <i class="search icon"></i>
-          <input type="text" placeholder="Search">
+          <input name="Search" class="ui input-text" type="text" placeholder="Search">
           <div style="background-color: white !important" class="ui basic floating dropdown button">
             <div class="text">Club Name</div>
             <i class="dropdown right aligned icon"></i>
             <div class="menu">
-              <div class="item">This Organization</div>
-              <div class="item">Entire Site</div>
+              <div class="item">Type</div>
             </div>
           </div>
         </div>
@@ -22,12 +21,10 @@
       username=routeUserName}}">Club Admin</a>
       <div class="right aligned item">
         <a style="margin: 0px !important" class="{{isActiveRoute " Profile_Page"}} right aligned item" href="{{pathFor
-        "Profile_Page" username=routeUserName}}"><img style="margin: 0px" class="ui avatar image" src="/images/altenberg.jpg">
+        "Profile_Page" username=routeUserName}}"><img style="margin: 0px" class="ui avatar image" src="/images/altenberg.jpg"><span style="margin: 5px">Username</span>
         </a>
-        <span style="padding-right: 10px; padding-left: 0px" class="center aligned item">Username</span>
-        <span style="box-shadow: none" class="ui basic floating dropdown button item">
-           <i class="chevron down icon"></i>
-        </span>
+        <a style="padding-right: 10px; padding-left: 0px" class="{{isActiveRoute " Profile_Page"}} center aligned item" href="{{pathFor
+        "Profile_Page" username=routeUserName}}"></a>
       </div>
       <div style="margin: 0px !important" class="right aligned item">{{> Cas_Login }}</div>
     </div>
