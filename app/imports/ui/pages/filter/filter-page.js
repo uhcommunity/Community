@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
@@ -60,4 +61,11 @@ Template.Filter_Page.events({
     const selectedOptions = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
     instance.messageFlags.set(selectedInterestsKey, _.map(selectedOptions, (option) => option.value));
   },
+  'click .club'(event, instance) {
+    event.preventDefault();
+    Session.set('clubSelected', event.currentTarget.id);
+    const selectedClub = Clubs.findDoc(Session.get('clubSelected'));
+    const user = FlowRouter.getParam('username');
+    FlowRouter.go("/"+ user + "/clubpage/" + selectedClub._id);
+  }
 });

@@ -1,6 +1,6 @@
 <template name="Directory_Profile">
 
-  <div class="card">
+  <div id="{{ profile._id }}" class="card club">
     <div class="image">
       <img src="{{ profile.picture }}">
     </div>
@@ -22,7 +22,7 @@
       <div class="ui equal width center aligned grid">
         <div class="column"><a href="mailto:{{ profile.username}}@hawaii.edu"><i class="big mail icon"></i></a></div>
         {{#if profile.github }}
-        <div class="column"><a href="https://github.com/{{ profile.github}}"><i class="big github icon"></i></a></div>
+        <div class="column"><a href="https://github.com/{{ profile.github }}"><i class="big github icon"></i></a></div>
         {{/if}}
         {{#if profile.facebook }}
         <div class="column"><a href="https://facebook.com/{{ profile.facebook}}"><i class="big facebook icon"></i></a></div>
