@@ -1,4 +1,5 @@
 import '/imports/startup/client';
+import '/imports/ui/components/comment';
 import '/imports/ui/components/club';
 import '/imports/ui/components/form-controls';
 import '/imports/ui/components/directory';

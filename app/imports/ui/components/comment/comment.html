@@ -1,0 +1,21 @@
+<template name="Comment">
+  {{#if Template.subscriptionsReady}}
+    <div class="comment">
+      <a class="avatar">
+        <img src="{{comment.picture}}">
+      </a>
+      <div class="content">
+        <a class="author">{{comment.author}}</a>
+        <div class="metadata">
+          <span class="date">{{comment.date}}</span>
+        </div>
+        <div class="text">
+          {{comment.text}}
+        </div>
+        <div class="actions">
+          <a class="reply">Reply</a>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</template>

@@ -27,6 +27,10 @@ class BaseCollection {
     this._collection.attachSchema(this._schema);
   }
 
+  insertOne(data) {
+    return this._collection.insert(data);
+  }
+
   /**
    * Returns the number of documents in this collection.
    * @returns { Number } The number of elements in this collection.

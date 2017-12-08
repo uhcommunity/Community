@@ -1,21 +1,42 @@
 <template name="Club">
-
-  <div class="ui raised link card">
-    <div class="content">
-      <div class="header">{{club.clubName}}</div>
-      <div class="meta">
-        <span class="category">{{club.interests}}</span>
+  {{#if Template.subscriptionsReady}}
+    <div class="ui two column doubling stackable grid container">
+      <div class="column">
+        <div class="ui raised link centered card">
+          <div class="content">
+            <div class="header">{{club.clubName}}</div>
+            <div class="meta">
+              <span class="category">{{club.interests}}</span>
+            </div>
+            <div class="description">
+              <p>{{club.clubDescription}}</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <div class="right floated author">
+              <img class="ui avatar image" src="{{ club.picture }}">
+              {{club.username}}
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="description">
-        <p>{{club.clubDescription}}</p>
+      <div class="column">
+        <div class="ui threaded comments">
+          <h3 class="ui dividing header">Comments</h3>
+
+          {{#each comment in comments }}
+            <h1>test</h1>
+            <!-- {{> Comment_ comment=comment }} -->
+          {{/each}}
+
+          <form class="ui reply form">
+            <div class="field">
+              <textarea></textarea>
+            </div>
+            <button class="ui blue button" type="submit"><i class="icon edit"></i> Add Reply</button>
+          </form>
+        </div>
       </div>
     </div>
-    <div class="extra content">
-      <div class="right floated author">
-        <img class="ui avatar image" src="{{club.picture}}">
-        {{club.username}}
-      </div>
-    </div>
-  </div>
-
+  {{/if}}
 </template>

@@ -12,7 +12,6 @@ Template.ClubPage_Page.onCreated(function onCreated() {
 
 Template.ClubPage_Page.helpers({
   club() {
-    console.log(Clubs.findDoc(Session.get('clubSelected')));
     return Clubs.findDoc(Session.get('clubSelected'));
   }
 });
