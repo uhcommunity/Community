@@ -31,10 +31,9 @@ Template.Club.helpers({
   comments() {
     const comments = Comments.findAll();
     console.log(comments);
-    console.log("FILTER!!!");
-    console.log( _.filter(comments, (e) => console.log(e)));
-    console.log(FlowRouter.getParam('clubid'));
-    return _.filter(comments, (e) => e.clubId == FlowRouter.getParam('clubid'));
+    const filtered =  _.filter(comments, (e) => e.clubId == FlowRouter.getParam('clubid'));
+    console.log (filtered);
+    return filtered;
   }
 });
 
