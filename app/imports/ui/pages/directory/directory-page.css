@@ -1,3 +1,6 @@
 .directory-page-body {
-  background-color: #00B5AD;
+  	background-color: #00B5AD;
+}
+.club {
+	cursor: pointer;
 }

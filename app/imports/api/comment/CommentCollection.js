@@ -21,7 +21,7 @@ class CommentCollection extends BaseCollection {
       clubId: { type: String },
       author: { type: String },
       text: { type: String },
-      date: { type: Date },
+      date: { type: String },
       picture: { type: String }
     }, { tracker: Tracker }));
   }
