@@ -1,4 +1,3 @@
-import './club.html';
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { FlowRouter } from 'meteor/kadira:flow-router';
@@ -29,6 +28,7 @@ Template.Club.onCreated(function onCreated() {
 
 Template.Club.helpers({
   comments() {
+    console.log('COMMENTS!!!');
     const comments = Comments.findAll();
     console.log(comments);
     const filtered =  _.filter(comments, (e) => e.clubId == FlowRouter.getParam('clubid'));
@@ -51,3 +51,5 @@ Template.Club.events({
     Comments.insertOne(insertCommentData);
   }
 });
+import './club.html';
+
