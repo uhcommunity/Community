@@ -1,6 +1,6 @@
 import '/imports/startup/client';
-import '/imports/ui/components/comment';
 import '/imports/ui/components/club';
+import '/imports/ui/components/comment';
 import '/imports/ui/components/form-controls';
 import '/imports/ui/components/directory';
 import '/imports/ui/components/user';
@@ -20,3 +20,4 @@ import '/imports/api/base';
 import '/imports/api/profile';
 import '/imports/api/interest';
 import '/imports/api/club';
+import '/imports/api/comment';

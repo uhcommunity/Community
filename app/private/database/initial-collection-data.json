@@ -204,15 +204,7 @@
     },
     {
       "name": "CommentCollection",
-      "contents": [
-        {
-          "clubId": "zw7rS459v4oEXvkji",
-          "author": "tcchong",
-          "text": "This club rocks!",
-          "date": "Thu Dec 07 2017 13:48:01 GMT-1000 (HST)",
-          "picture": "https://semantic-ui.com/images/avatar/small/matt.jpg"
-        }
-      ]
+      "contents": []
     }
   ]
 }

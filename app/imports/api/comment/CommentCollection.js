@@ -26,14 +26,13 @@ class CommentCollection extends BaseCollection {
     }, { tracker: Tracker }));
   }
 
-  define({ clubId = '', author = '', text = '', date = '', picture = ''}) {
+  define({ clubId, author, text, date, picture}) {
     // make sure required fields are OK.
     const checkPattern = { clubId: String, author: String, text: String, date: String, picture: String };
     check({ clubId, author, text, date, picture }, checkPattern);
 
     return this._collection.insert({ clubId, author, text, date, picture });
   }
-
 
   dumpOne(docID) {
     const doc = this.findDoc(docID);
