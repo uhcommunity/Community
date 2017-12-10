@@ -21,7 +21,7 @@ Template.User_Header.helpers({
     return user;
   },
   getImage() {
-    if (!Template.instance().getProfile(Template.instance().username)) {
+    if (!Template.instance().getProfile(Template.instance().username).picture) {
       return 'https://semantic-ui.com/images/avatar2/large/matthew.png';
     } else {
       return Template.instance().getProfile(Template.instance().username).picture;
