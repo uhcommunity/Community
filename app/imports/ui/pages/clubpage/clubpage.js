@@ -13,6 +13,7 @@ Template.ClubPage_Page.onCreated(function onCreated() {
   this.subscribe(Clubs.getPublicationName());
   this.subscribe(Comments.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
+  this.context = Comments.getSchema().namedContext('ClubPage_Page');
   this.getProfile = function(name) {
     return Profiles._collection.findOne({username: name});
   }
@@ -52,6 +53,16 @@ Template.ClubPage_Page.events({
 
     const insertCommentData = { clubId, author, text, date, picture };
 
-    Comments.insertOne(insertCommentData);
+    // Clear out any old validation errors.
+    instance.context.reset();
+    // Invoke clean so that updatedProfileData reflects what will be inserted.
+    const cleanData = Comments.getSchema().clean(insertCommentData);
+    // Determine validity.
+    instance.context.validate(cleanData);
+
+    if (instance.context.isValid()) {
+      Comments.insertOne(insertCommentData);
+    }
+
   }
 });
