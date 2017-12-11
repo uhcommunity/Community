@@ -35,6 +35,7 @@ Template.ClubPage_Page.helpers({
   },
   comments() {
     console.log('COMMENTS!!!');
+    console.log(FlowRouter.getParam('clubid'));
     const comments = Template.instance().getComments(FlowRouter.getParam('clubid'));
     console.log(comments);
     return comments;
