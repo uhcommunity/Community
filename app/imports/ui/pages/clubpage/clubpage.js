@@ -6,6 +6,7 @@ import { Clubs } from '/imports/api/club/ClubCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Comments } from '/imports/api/comment/CommentCollection';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
+import { $ } from 'meteor/jquery';
 
 
 Template.ClubPage_Page.onCreated(function onCreated() {
@@ -27,18 +28,34 @@ Template.ClubPage_Page.onCreated(function onCreated() {
   this.getComments = function (clubId) {
     return Comments._collection.find({clubId: clubId}).fetch();
   }
+  Session.set('selectedPage', 1);
 });
 
 Template.ClubPage_Page.helpers({
+  selectedPage() {
+    return Session.get('selectedPage');
+  },
   club() {
     return Clubs.findDoc(Session.get('clubSelected'));
   },
-  comments() {
-    console.log('COMMENTS!!!');
-    console.log(FlowRouter.getParam('clubid'));
+  comments(pageNum) {
     const comments = Template.instance().getComments(FlowRouter.getParam('clubid'));
-    console.log(comments);
-    return comments;
+    const selected = [];
+    for (let i = (pageNum - 1) * 5; i < (pageNum * 5); i++) {
+      if (comments[i] && comments[i].author == FlowRouter.getParam('username')) comments[i].owner = true;
+      if (comments[i]) selected.push(comments[i]);
+      console.log(comments[i]);
+    }
+    return selected;
+  },
+  pages() {
+    const comments = Template.instance().getComments(FlowRouter.getParam('clubid'));
+    const arr = [1];
+    for (let i = 1; i < comments.length; i++) {
+      if (i % 5 == 0) arr.push(arr[arr.length - 1] + 1);
+    }
+    if (arr.length == 1) return;
+    return arr;
   }
 
 });
@@ -64,6 +81,27 @@ Template.ClubPage_Page.events({
     if (instance.context.isValid()) {
       Comments.insertOne(insertCommentData);
     }
-
+  },
+  'click .paginate'(event, instance) {
+    event.preventDefault();
+    const paginates = $('.paginate');
+    for (let item of paginates) {
+      $(item).removeClass('active');
+    }
+    const item = $(event.target);
+    item.addClass('active');
+    const text = event.target.text;
+    Session.set('selectedPage', parseInt(text));
+  },
+  'click .remove'(event, instance) {
+    event.preventDefault();
+    const target = $(event.target);
+    Comments.removeIt(target.data().commentid);
+    Session.set('selectedPage', 1);
+    const paginates = $('.paginate');
+    for (let item of paginates) {
+      $(item).removeClass('active');
+    }
+    $(paginates[0]).addClass('active');
   }
 });

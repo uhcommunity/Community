@@ -13,7 +13,10 @@
           {{comment.text}}
         </div>
         <div class="actions">
-          <a class="reply">Reply</a>
+          <!-- <a class="reply">Reply</a> -->
+          {{#if comment.owner}}
+            <i style="cursor: pointer;" data-commentId={{comment._id}} class="remove icon"></i>
+          {{/if}}
         </div>
       </div>
     </div>
