@@ -2,7 +2,7 @@
 
   {{#if Template.subscriptionsReady}}
     <div style="margin-top: 10px" class="ui container">
-      {{> Club comments=comments club=club }}
+      {{> Club pages=pages club=club comments=(comments selectedPage) }}
     </div>
   {{/if}}
 

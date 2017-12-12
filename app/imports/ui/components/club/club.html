@@ -27,7 +27,19 @@
           {{#each comment in comments }}
              {{> Comment comment=comment }}
           {{/each}}
+          {{#if pages}}
+            <div class="ui container center aligned">
+              <div class="ui pagination menu">
 
+                {{#each number in pages }}
+                  <a class="paginate item" data-paginate-index={{@index}}>
+                    {{number}}
+                  </a>
+                {{/each}}
+
+              </div>
+            </div>
+          {{/if}}
           <form class="ui reply form">
             <div class="field">
               <textarea></textarea>
