@@ -23,6 +23,7 @@ class ClubCollection extends BaseCollection {
       clubName: { type: String, optional: true },
       // Remainder are optional
       clubDescription: { type: String, optional: true },
+      likes: { type: Number, optional: true},
       interests: { type: Array, optional: true },
       'interests.$': { type: String },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
@@ -54,7 +55,7 @@ class ClubCollection extends BaseCollection {
    * @returns The newly created docID.
    */
   define({ username = '', clubName = '', clubDescription = '', interests = [], picture = '',
-           facebook = '', instagram = '' }) {
+           facebook = '', instagram = '', likes = 0 }) {
     // make sure required fields are OK.
     const checkPattern = { username: String, clubName: String, clubDescription: String, picture: String };
     check({ username, clubName, clubDescription, picture }, checkPattern);
@@ -72,7 +73,7 @@ class ClubCollection extends BaseCollection {
     }
 
     return this._collection.insert({ clubName, clubDescription, username, interests, picture,
-      facebook, instagram });
+      facebook, instagram, likes });
   }
 
   /**

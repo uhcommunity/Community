@@ -84,66 +84,7 @@
     },
     {
       "name": "ProfileCollection",
-      "contents": [
-        {
-          "firstName": "Association for Computing Machinery at UH Manoa",
-          "lastName": "Altenberg",
-          "username": "altenber",
-          "bio": "The world's premier society whose mission is the advancement of computing as a science and profession.",
-          "interests": [
-            "Computer"
-          ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "location": "Honolulu, HI",
-          "picture": "/images/acm.jpg"
-        },
-        {
-          "firstName": "GreyHats UHM",
-          "lastName": "Baek",
-          "username": "baek",
-          "bio": "The ICS Grey Hats is a student-led, extracurricular organization focused on real-world training for cyber defense. Membership gives students an outstanding opportunity to learn and apply critical skills, and to share with others interested in modern security issues.",
-          "interests": [
-            "Computer"
-          ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "location": "Honolulu, HI",
-          "picture": "/images/greyhats.png"
-        },
-        {
-          "firstName": "Accounting Club",
-          "lastName": "Biagioni",
-          "username": "esb",
-          "bio": "In cooperation with the School of Accountancy, we provide additional perspectives and supplemental information concerning public, private, and governmental accounting through carefully planned social and business-oriented events.",
-          "interests": [
-            "Academic"
-          ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/acuh.png"
-        },
-        {
-          "firstName": "International Student Association",
-          "lastName": "Binsted",
-          "username": "binsted",
-          "bio": "International Student Association (ISA–2003-present) were established with a common goal: To provide a support system for international students attending the University of Hawai’i.",
-          "interests": [
-            "Student Affairs"
-          ],
-          "title": "Associate Professor, Information and Computer Sciences",
-          "picture": "/images/isa.jpg"
-        },
-        {
-          "firstName": "Cycle Club at University of Hawaii at Manoa",
-          "lastName": "Casanova",
-          "username": "henric",
-          "github": "henricasanova",
-          "bio": "The Cycling Club at the University of Hawaii at Manoa's goal is to advocate, promote, and compete in competitive cycling races on the local and national scene.",
-          "interests": [
-            "Sports"
-          ],
-          "title": "Professor, Information and Computer Sciences",
-          "picture": "/images/cycle.jpg"
-        }
-      ]
+      "contents": []
     },
     {
       "name": "ClubCollection",

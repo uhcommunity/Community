@@ -1,6 +1,6 @@
 <template name="Club">
   {{#if Template.subscriptionsReady}}
-    <div class="ui two column doubling stackable grid container">
+    <div class="ui two column doubling stackable grid container padded">
       <div class="column">
         <div class="ui raised link centered card">
           <div class="content">
@@ -13,9 +13,32 @@
             </div>
           </div>
           <div class="extra content">
+            <span class="left floated like">
+              <i class="like icon {{clubLiked}}"></i>
+              {{#if clubLiked}}
+                Unlike
+              {{else}}
+                Like
+              {{/if}}
+            </span>
             <div class="right floated author">
               <img class="ui avatar image" src="{{ club.picture }}">
               {{club.username}}
+            </div>
+          </div>
+        </div>
+        <div class="ui horizontal divider">info</div>
+        <div class="ui centered grid padded">
+          <div class="ui statistics">
+            <div class="center aligned">
+              <div class="statistic">
+                <div class="value">
+                  <i class="like icon"></i> {{club.likes}}
+                </div>
+                <div class="label">
+                  Likes
+                </div>
+              </div>
             </div>
           </div>
         </div>

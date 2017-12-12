@@ -25,6 +25,8 @@ class ProfileCollection extends BaseCollection {
       lastName: { type: String, optional: true },
       bio: { type: String, optional: true },
       interests: { type: Array, optional: true },
+      clubsLiked: { type: Array, optional: true },
+      'clubsLiked.$': { type: String },
       'interests.$': { type: String },
       title: { type: String, optional: true },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },
@@ -56,7 +58,7 @@ class ProfileCollection extends BaseCollection {
    * @returns The newly created docID.
    */
   define({ firstName = '', lastName = '', username, bio = '', interests = [], picture = '', title = '', github = '',
-      facebook = '', instagram = '' }) {
+      facebook = '', instagram = '', clubsLiked = [] }) {
     // make sure required fields are OK.
     const checkPattern = { firstName: String, lastName: String, username: String, bio: String, picture: String,
       title: String };
@@ -75,7 +77,7 @@ class ProfileCollection extends BaseCollection {
     }
 
     return this._collection.insert({ firstName, lastName, username, bio, interests, picture, title, github,
-      facebook, instagram });
+      facebook, instagram, clubsLiked });
   }
 
   /**
@@ -95,7 +97,8 @@ class ProfileCollection extends BaseCollection {
     const github = doc.github;
     const facebook = doc.facebook;
     const instagram = doc.instagram;
-    return { firstName, lastName, username, bio, interests, picture, title, github, facebook, instagram };
+    const clubsLiked = doc.clubsLiked;
+    return { firstName, lastName, username, bio, interests, picture, title, github, facebook, instagram, clubsLiked };
   }
 }
 

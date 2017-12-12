@@ -36,7 +36,21 @@ Template.ClubPage_Page.helpers({
     return Session.get('selectedPage');
   },
   club() {
-    return Clubs.findDoc(Session.get('clubSelected'));
+    const club = Clubs.findDoc(Session.get('clubSelected'));
+    return club;
+  },
+  clubLiked() {
+    const clubId = FlowRouter.getParam('clubid');
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    // const club = Clubs.findDoc(clubId);
+    if (profile.clubsLiked) {
+      if (profile.clubsLiked.indexOf(clubId) > -1) {
+        Session.set('clubLiked', true);
+        return 'active';
+      }
+    }
+    Session.set('clubLiked', false);
+    return false;
   },
   comments(pageNum) {
     const comments = Template.instance().getComments(FlowRouter.getParam('clubid'));
@@ -44,7 +58,6 @@ Template.ClubPage_Page.helpers({
     for (let i = (pageNum - 1) * 5; i < (pageNum * 5); i++) {
       if (comments[i] && comments[i].author == FlowRouter.getParam('username')) comments[i].owner = true;
       if (comments[i]) selected.push(comments[i]);
-      console.log(comments[i]);
     }
     return selected;
   },
@@ -103,5 +116,39 @@ Template.ClubPage_Page.events({
       $(item).removeClass('active');
     }
     $(paginates[0]).addClass('active');
+  },
+  'click .floated.like'(event, instance) {
+    if (!Session.get('clubLiked')) {
+      const clubId = FlowRouter.getParam('clubid');
+      const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+      if (!profile.clubsLiked) {
+        Profiles.update({_id: profile._id}, {$set: {clubsLiked: []}});
+        Profiles.update({_id: profile._id}, {$push: {clubsLiked: clubId}});
+        const club = Clubs.findDoc(clubId);
+        if (!club.likes) {
+          Clubs.update({_id: club._id}, {$set: {likes: 1}});
+        } else {
+          Clubs.update({_id: club._id}, {$set: {likes: club.likes + 1}});
+        }
+      } else {
+        if (!(profile.clubsLiked.indexOf(clubId) > -1)) {
+          Profiles.update({_id: profile._id}, {$push: {clubsLiked: clubId}});
+          const club = Clubs.findDoc(clubId);
+          if (!club.likes) {
+            Clubs.update({_id: club._id}, {$set: {likes: 1}});
+          } else {
+            Clubs.update({_id: club._id}, {$set: {likes: club.likes + 1}});
+          }
+        }
+      }
+      Session.set('clubLiked', true);
+    } else {
+      const clubId = FlowRouter.getParam('clubid');
+      const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+      const club = Clubs.findDoc(clubId);
+      Profiles.update({_id: profile._id},{$pull: {clubsLiked: clubId}});
+      Clubs.update({_id: club._id}, {$set: {likes: club.likes - 1}});
+      Session.set('clubLiked', false);
+    }
   }
 });
