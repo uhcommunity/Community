@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
+import { Clubs } from '/imports/api/club/ClubCollection';
 import { Session } from 'meteor/session';
 
 const displaySuccessMessage = 'displaySuccessMessage';
@@ -12,10 +13,12 @@ const displayErrorMessages = 'displayErrorMessages';
 Template.Profile_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
+  this.subscribe(Clubs.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
   this.context = Profiles.getSchema().namedContext('Profile_Page');
+  Session.set('currentView', 'profile');
 });
 
 Template.Profile_Page.helpers({
@@ -40,6 +43,16 @@ Template.Profile_Page.helpers({
               return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
             });
   },
+  currentView(text) {
+    if (Session.get('currentView') == text) {
+      return 'active';
+    }
+    return false;
+  },
+  getClub(clubId) {
+    const club = Clubs.findDoc(clubId);
+    return club;
+  }
 });
 
 
@@ -77,4 +90,16 @@ Template.Profile_Page.events({
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
+  'click .change'(event, instance) {
+    event.preventDefault();
+    Session.set('currentView', event.target.id);
+  },
+  'click .floated.like'(event, instance) {
+    event.preventDefault();
+    const clubId = event.target.id;
+    const profile = Profiles.findDoc(FlowRouter.getParam('username'));
+    const club = Clubs.findDoc(clubId);
+    Profiles.update({_id: profile._id},{$pull: {clubsLiked: clubId}});
+    Clubs.update({_id: club._id}, {$set: {likes: club.likes - 1}});
+  }
 });

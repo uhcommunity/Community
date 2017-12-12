@@ -2,47 +2,71 @@
 
 {{#if Template.subscriptionsReady}}
 
-  <div class="ui text container segment">
-    <div class="ui dividing header">
-      Profile
+
+  <div class="ui grid container">
+
+    <div class="four wide column">
+      <div class="ui vertical pointing menu">
+        <a id="profile" class="change item {{currentView 'profile'}}">
+          Profile
+        </a>
+        <a id="likes" class="change item {{currentView 'likes'}}">
+          Likes
+        </a>
+      </div>
     </div>
-    <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
+    <div class="twelve wide column">
+      {{#if currentView 'profile'}}
+        <div class="ui text container segment">
+          <div class="ui dividing header">
+            Profile
+          </div>
+          <form class="ui equal width form profile-data-form {{ successClass }} {{ errorClass }}">
 
-      <div class="fields">
-        {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName")}}
-        {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName")}}
+            <div class="fields">
+              {{> Text_Form_Control label="First" placeholder="Philip" value=profile.firstName errorMessage=(fieldError "firstName")}}
+              {{> Text_Form_Control label="Last" placeholder="Johnson" value=profile.lastName errorMessage=(fieldError "lastName")}}
 
-      </div>
+            </div>
 
-      <div class="field">
-        {{> Text_Form_Control label="Title" placeholder="Student" value=profile.title errorMessage=(fieldError "title")}}
-        {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
-      </div>
+            <div class="field">
+              {{> Text_Form_Control label="Title" placeholder="Student" value=profile.title errorMessage=(fieldError "title")}}
+              {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" value=profile.picture errorMessage=(fieldError "picture")}}
+            </div>
 
-      <div class="field">
-        {{> Select_Form_Control label="Interests" options=interests errorMessage=(fieldError "interests") multiple=true }}
-      </div>
+            <div class="field">
+              {{> Select_Form_Control label="Interests" options=interests errorMessage=(fieldError "interests") multiple=true }}
+            </div>
 
-      <div class="fields">
+            <div class="fields">
 
-        {{> Social_Network_Form_Control label="Facebook" icon="facebook" placeholder="pmjohnson" value=profile.facebook errorMessage=(fieldError "facebook")}}
-        {{> Social_Network_Form_Control label="Instagram" icon="instagram" placeholder="pmjohnson" value=profile.instagram errorMessage=(fieldError "instagram")}}
-        {{> Social_Network_Form_Control label="Twitter" icon="twitter" placeholder="pmjohnson" value=profile.instagram errorMessage=(fieldError "twitter")}}
+              {{> Social_Network_Form_Control label="Facebook" icon="facebook" placeholder="pmjohnson" value=profile.facebook errorMessage=(fieldError "facebook")}}
+              {{> Social_Network_Form_Control label="Instagram" icon="instagram" placeholder="pmjohnson" value=profile.instagram errorMessage=(fieldError "instagram")}}
+              {{> Social_Network_Form_Control label="Twitter" icon="twitter" placeholder="pmjohnson" value=profile.instagram errorMessage=(fieldError "twitter")}}
 
-      </div>
+            </div>
 
-      {{> TextArea_Form_Control label="Bio" value=profile.bio placeholder="Tell us who you are!" errorMessage=(fieldError "bio")}}
+            {{> TextArea_Form_Control label="Bio" value=profile.bio placeholder="Tell us who you are!" errorMessage=(fieldError "bio")}}
 
 
-      <button class="ui primary button" type="submit">Submit</button>
-      {{#if displaySuccessMessage}}
-        <div class="ui success message">
-          <p>Profile data successfully updated.</p>
+            <button class="ui primary button" type="submit">Submit</button>
+            {{#if displaySuccessMessage}}
+              <div class="ui success message">
+                <p>Profile data successfully updated.</p>
+              </div>
+            {{/if}}
+          </form>
         </div>
       {{/if}}
-    </form>
+      {{#if currentView 'likes'}}
+        <div class="ui grid container">
+          {{#each club in profile.clubsLiked}}
+              {{> Club_Card club=(getClub club)}}
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
   </div>
-
   {{/if}}
 
 </template>
