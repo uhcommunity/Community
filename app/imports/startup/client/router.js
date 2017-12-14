@@ -81,7 +81,7 @@ userRoutes.route('/clubpage/:clubid', {
   name: clubPagePageRouteName,
   action(params, queryParams) {
     BlazeLayout.render('User_Layout', { main: clubPagePageRouteName });
-  }
+  },
 });
 
 export const profilePagePageRouteName = 'ProfilePage_Page';
@@ -89,7 +89,7 @@ userRoutes.route('/profile/:profileId', {
   name: profilePagePageRouteName,
   action(params, queryParams) {
     BlazeLayout.render('User_Layout', { main: profilePagePageRouteName });
-  }
+  },
 });
 
 /*                        MISC ROUTES                       */

@@ -9,7 +9,7 @@ Template.Directory_Page.onCreated(function onCreated() {
 
 Template.Directory_Page.helpers({
   clubs() {
-    return Clubs.find({}, { sort: { clubName: 1}});
+    return Clubs.find({}, { sort: { clubName: 1 } });
   },
   profiles() {
     return Profiles.find({}, { sort: { lastName: 1 } });

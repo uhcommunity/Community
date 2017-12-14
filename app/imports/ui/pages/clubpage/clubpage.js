@@ -7,6 +7,7 @@ import { Interests } from '/imports/api/interest/InterestCollection';
 import { Comments } from '/imports/api/comment/CommentCollection';
 import { Profiles } from '/imports/api/profile/ProfileCollection';
 import { $ } from 'meteor/jquery';
+import { Session } from 'meteor/session';
 
 
 Template.ClubPage_Page.onCreated(function onCreated() {
@@ -15,19 +16,19 @@ Template.ClubPage_Page.onCreated(function onCreated() {
   this.subscribe(Comments.getPublicationName());
   this.subscribe(Profiles.getPublicationName());
   this.context = Comments.getSchema().namedContext('ClubPage_Page');
-  this.getProfile = function(name) {
-    return Profiles._collection.findOne({username: name});
-  }
+  this.getProfile = function (name) {
+    return Profiles._collection.findOne({ username: name });
+  };
   this.getImage = function (profile) {
     if (!profile.picture) {
       return 'https://semantic-ui.com/images/avatar2/large/matthew.png';
     } else {
       return profile.picture;
     }
-  }
+  };
   this.getComments = function (clubId) {
-    return Comments._collection.find({clubId: clubId}).fetch();
-  }
+    return Comments._collection.find({ clubId: clubId }).fetch();
+  };
   Session.set('selectedPage', 1);
 });
 
@@ -56,7 +57,7 @@ Template.ClubPage_Page.helpers({
     const comments = Template.instance().getComments(FlowRouter.getParam('clubid'));
     const selected = [];
     for (let i = (pageNum - 1) * 5; i < (pageNum * 5); i++) {
-      if (comments[i] && comments[i].author == FlowRouter.getParam('username')) comments[i].owner = true;
+      if (comments[i] && comments[i].author === FlowRouter.getParam('username')) comments[i].owner = true;
       if (comments[i]) selected.push(comments[i]);
     }
     return selected;
@@ -65,11 +66,11 @@ Template.ClubPage_Page.helpers({
     const comments = Template.instance().getComments(FlowRouter.getParam('clubid'));
     const arr = [1];
     for (let i = 1; i < comments.length; i++) {
-      if (i % 5 == 0) arr.push(arr[arr.length - 1] + 1);
+      if (i % 5 === 0) arr.push(arr[arr.length - 1] + 1);
     }
-    if (arr.length == 1) return;
+    if (arr.length === 1) return;
     return arr;
-  }
+  },
 
 });
 
@@ -122,22 +123,22 @@ Template.ClubPage_Page.events({
       const clubId = FlowRouter.getParam('clubid');
       const profile = Profiles.findDoc(FlowRouter.getParam('username'));
       if (!profile.clubsLiked) {
-        Profiles.update({_id: profile._id}, {$set: {clubsLiked: []}});
-        Profiles.update({_id: profile._id}, {$push: {clubsLiked: clubId}});
+        Profiles.update({ _id: profile._id }, { $set: { clubsLiked: [] } });
+        Profiles.update({ _id: profile._id }, { $push: { clubsLiked: clubId } });
         const club = Clubs.findDoc(clubId);
         if (!club.likes) {
-          Clubs.update({_id: club._id}, {$set: {likes: 1}});
+          Clubs.update({ _id: club._id }, { $set: { likes: 1 } });
         } else {
-          Clubs.update({_id: club._id}, {$set: {likes: club.likes + 1}});
+          Clubs.update({ _id: club._id }, { $set: { likes: club.likes + 1 } });
         }
       } else {
         if (!(profile.clubsLiked.indexOf(clubId) > -1)) {
-          Profiles.update({_id: profile._id}, {$push: {clubsLiked: clubId}});
+          Profiles.update({ _id: profile._id }, { $push: { clubsLiked: clubId } });
           const club = Clubs.findDoc(clubId);
           if (!club.likes) {
-            Clubs.update({_id: club._id}, {$set: {likes: 1}});
+            Clubs.update({ _id: club._id }, { $set: { likes: 1 } });
           } else {
-            Clubs.update({_id: club._id}, {$set: {likes: club.likes + 1}});
+            Clubs.update({ _id: club._id }, { $set: { likes: club.likes + 1 } });
           }
         }
       }
@@ -146,8 +147,8 @@ Template.ClubPage_Page.events({
       const clubId = FlowRouter.getParam('clubid');
       const profile = Profiles.findDoc(FlowRouter.getParam('username'));
       const club = Clubs.findDoc(clubId);
-      Profiles.update({_id: profile._id},{$pull: {clubsLiked: clubId}});
-      Clubs.update({_id: club._id}, {$set: {likes: club.likes - 1}});
+      Profiles.update({ _id: profile._id },{ $pull: { clubsLiked: clubId } });
+      Clubs.update({ _id: club._id }, { $set: { likes: club.likes - 1 } });
       Session.set('clubLiked', false);
     }
   },

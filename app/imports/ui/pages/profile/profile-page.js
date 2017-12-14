@@ -13,7 +13,6 @@ Template.ProfilePage_Page.onCreated(function onCreated() {
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Clubs.getPublicationName());
   this.subscribe(Comments.getPublicationName());
-
 });
 
 Template.ProfilePage_Page.helpers({
@@ -25,13 +24,13 @@ Template.ProfilePage_Page.helpers({
     return profile;
   },
   comments() {
-    const comments = Comments.findAll({author: FlowRouter.getParam('profileId')});
+    const comments = Comments.find({author: FlowRouter.getParam('profileId')});
     return comments;
   },
   getClub(clubId) {
     const club = Clubs.findDoc(clubId);
     return club;
-  }
+  },
 });
 
 Template.ProfilePage_Page.events({

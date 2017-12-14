@@ -22,11 +22,11 @@ class CommentCollection extends BaseCollection {
       author: { type: String },
       text: { type: String },
       date: { type: String },
-      picture: { type: String }
+      picture: { type: String },
     }, { tracker: Tracker }));
   }
 
-  define({ clubId, author, text, date, picture}) {
+  define({ clubId, author, text, date, picture }) {
     // make sure required fields are OK.
     const checkPattern = { clubId: String, author: String, text: String, date: String, picture: String };
     check({ clubId, author, text, date, picture }, checkPattern);
