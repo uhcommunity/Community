@@ -63,6 +63,7 @@ Template.Filter_Page.events({
   },
   'click .club'(event, instance) {
     event.preventDefault();
+    console.log(event);
     Session.set('clubSelected', event.currentTarget.id);
     const selectedClub = Clubs.findDoc(Session.get('clubSelected'));
     const user = FlowRouter.getParam('username');

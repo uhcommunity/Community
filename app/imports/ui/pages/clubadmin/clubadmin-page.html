@@ -23,7 +23,7 @@
           <form class="ui equal width form clubadmin-data-form {{ successClass }} {{ errorClass }}">
 
             <div class="field">
-              {{> Text_Form_Control label="ClubName" placeholder="Club Name" value=club.clubName errorMessage=(fieldError "clubName")}}
+              {{> Text_Form_Control label="Name" placeholder="Club Name" value=club.clubName errorMessage=(fieldError "clubName")}}
             </div>
 
             <div class="field">
@@ -42,7 +42,7 @@
 
             </div>
 
-            {{> TextArea_Form_Control label="ClubDescription" value=club.clubDescription placeholder="Club Description" errorMessage=(fieldError "clubDescription")}}
+            {{> TextArea_Form_Control label="Description" value=club.clubDescription placeholder="Club Description" errorMessage=(fieldError "clubDescription")}}
 
 
             <button class="ui primary button" type="submit">Submit</button>
