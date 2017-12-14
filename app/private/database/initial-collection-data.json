@@ -29,23 +29,7 @@
           "description": "Hawaiian practice of cooking in a pit."
         },
         {
-          "name": "Scuba",
-          "description": ""
-        },
-        {
-          "name": "Photography",
-          "description": ""
-        },
-        {
-          "name": "Wind surfing",
-          "description": ""
-        },
-        {
           "name": "Psychology",
-          "description": ""
-        },
-        {
-          "name": "Motorcycling",
           "description": ""
         },
         {
@@ -53,31 +37,7 @@
           "description": ""
         },
         {
-          "name": "Paddling",
-          "description": ""
-        },
-        {
-          "name": "Crossfit",
-          "description": ""
-        },
-        {
           "name": "Cybersecurity",
-          "description": ""
-        },
-        {
-          "name": "Surfing",
-          "description": ""
-        },
-        {
-          "name": "Computer Vision",
-          "description": ""
-        },
-        {
-          "name": "Martial Arts",
-          "description": ""
-        },
-        {
-          "name": "Evolutionary Computation",
           "description": ""
         }
       ]
@@ -94,7 +54,8 @@
           "clubDescription": "A club with grey hats.",
           "username": "tcchong",
           "interests": [
-            "Cybersecurity"
+            "Cybersecurity",
+            "Computer"
           ],
           "picture": "/images/greyhats.png"
         },
@@ -104,8 +65,7 @@
           "clubDescription": "The world's premier society whose mission is the advancement of computing as a science and profession.",
           "username": "jordanoo",
           "interests": [
-            "Computer",
-            "Evolutionary Computation"
+            "Computer"
           ],
           "picture": "/images/acm.jpg"
         },
@@ -126,8 +86,8 @@
           "clubDescription": "International Student Association (ISA–2003-present) were established with a common goal: To provide a support system for international students attending the University of Hawai’i.",
           "username": "aspacio",
           "interests": [
-            "Surfing",
-            "Photography"
+            "Student Affairs",
+            "Cultural"
           ],
           "picture": "/images/isa.jpg"
         },
@@ -136,8 +96,7 @@
           "clubDescription": "The Cycling Club at the University of Hawaii at Manoa's goal is to advocate, promote, and compete in competitive cycling races on the local and national scene.",
           "username": "test",
           "interests": [
-            "Surfing",
-            "Photography"
+            "Sports",
           ],
           "picture": "/images/cycle.jpg"
         }
