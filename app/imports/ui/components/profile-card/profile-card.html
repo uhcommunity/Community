@@ -1,0 +1,25 @@
+<template name="Profile_Card">
+  {{#if Template.subscriptionsReady}}
+
+  <div class="ui centered card">
+    <div class="image">
+      <img src="{{profile.image}}">
+    </div>
+    <div class="content">
+      <a class="header">{{profile.username}}</a>
+      <div class="meta">
+        <!-- <span class="date">Joined in 2013</span> -->
+      </div>
+      <div class="description">
+        {{profile.bio}}
+      </div>
+    </div>
+    <div class="extra content">
+      <a>
+        <i class="heart icon"></i>
+        {{profile.clubsLiked.length}} Likes
+      </a>
+    </div>
+  </div>
+  {{/if}}
+</template>

@@ -1,0 +1,26 @@
+<template name="ProfilePage_Page">
+  {{#if Template.subscriptionsReady}}
+    <div style="margin-top: 10px" class="ui container">
+      <div class="ui two column doubling stackable grid container padded">
+        <div class="column six wide">
+          {{> Profile_Card profile=profile }}
+        </div>
+        <div class="column ten wide">
+          <div class="ui grid">
+            <div class="ui grid container">
+              {{#each club in profile.clubsLiked}}
+                  {{> Club_Card club=(getClub club)}}
+              {{/each}}
+            </div>
+            <div class="ui threaded comments">
+              <h3 class="ui dividing header">Comments</h3>
+              {{#each comment in comments }}
+                 {{> Comment comment=comment }}
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</template>

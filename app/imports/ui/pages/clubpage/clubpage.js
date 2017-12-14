@@ -150,5 +150,9 @@ Template.ClubPage_Page.events({
       Clubs.update({_id: club._id}, {$set: {likes: club.likes - 1}});
       Session.set('clubLiked', false);
     }
+  },
+  'click .author'(event, instance) {
+    const user = FlowRouter.getParam('username');
+    FlowRouter.go("/"+ user + "/profile/" + event.currentTarget.text);
   }
 });

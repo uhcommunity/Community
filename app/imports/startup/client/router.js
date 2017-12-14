@@ -84,6 +84,14 @@ userRoutes.route('/clubpage/:clubid', {
   }
 });
 
+export const profilePagePageRouteName = 'ProfilePage_Page';
+userRoutes.route('/profile/:profileId', {
+  name: profilePagePageRouteName,
+  action(params, queryParams) {
+    BlazeLayout.render('User_Layout', { main: profilePagePageRouteName });
+  }
+});
+
 /*                        MISC ROUTES                       */
 FlowRouter.notFound = {
   action() {
