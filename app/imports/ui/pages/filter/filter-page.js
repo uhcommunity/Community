@@ -49,7 +49,7 @@ Template.Filter_Page.helpers({
         function makeInterestObject(interest) {
           return {
             label: interest.name,
-            selected: _.contains(Template.instance().messageFlags.get(selectedIntcluberestsKey), interest.name),
+            selected: _.contains(Template.instance().messageFlags.get(selectedInterestsKey), interest.name),
           };
         });
   },
