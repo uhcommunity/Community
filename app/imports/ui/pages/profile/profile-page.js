@@ -25,7 +25,7 @@ Template.ProfilePage_Page.helpers({
     return profile;
   },
   comments() {
-    const comments = Comments.findAll({author: FlowRouter.getParam('profileId')});
+    const comments = Comments.find({author: FlowRouter.getParam('profileId')});
     return comments;
   },
   getClub(clubId) {
