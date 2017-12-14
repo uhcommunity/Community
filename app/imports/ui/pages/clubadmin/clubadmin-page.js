@@ -50,7 +50,7 @@ Template.ClubAdmin_Page.helpers({
   },
   comments(text) {
     const club = Clubs.findDoc(FlowRouter.getParam('username'));
-    const comments = Comments.findAll({ id: club._id });
+    const comments = Comments.find({ id: club._id });
     comments.forEach((e) => e.owner = true);
     if (text === 'length') return comments.length;
     return comments;
