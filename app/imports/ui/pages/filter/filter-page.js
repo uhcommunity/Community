@@ -37,7 +37,7 @@ Template.Filter_Page.helpers({
     }
     // Find all clubs with the currently selected interests.
     const allClubs = Clubs.findAll();
-    if(Session.get('clubSearched')) {
+    if (Session.get('clubSearched')) {
       return _.filter(allClubs, club => !club.clubName.toLowerCase().indexOf(Session.get('clubSearched').toLowerCase()));
     }
     const selectedInterests = Template.instance().messageFlags.get(selectedInterestsKey);
@@ -67,6 +67,6 @@ Template.Filter_Page.events({
     Session.set('clubSelected', event.currentTarget.id);
     const selectedClub = Clubs.findDoc(Session.get('clubSelected'));
     const user = FlowRouter.getParam('username');
-    FlowRouter.go("/"+ user + "/clubpage/" + selectedClub._id);
-  }
+    FlowRouter.go('/' + user + '/clubpage/' + selectedClub._id);
+  },
 });

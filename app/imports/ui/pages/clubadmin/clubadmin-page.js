@@ -5,6 +5,7 @@ import { _ } from 'meteor/underscore';
 import { Clubs } from '/imports/api/club/ClubCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
 import { Comments } from '/imports/api/comment/CommentCollection';
+import { Session } from 'meteor/session';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
@@ -42,18 +43,18 @@ Template.ClubAdmin_Page.helpers({
         });
   },
   currentView(text) {
-    if (Session.get('currentView') == text) {
+    if (Session.get('currentView') === text) {
       return 'active';
     }
     return false;
   },
   comments(text) {
     const club = Clubs.findDoc(FlowRouter.getParam('username'));
-    const comments = Comments.findAll({id: club._id});
+    const comments = Comments.findAll({ id: club._id });
     comments.forEach((e) => e.owner = true);
-    if (text == 'length') return comments.length;
+    if (text === 'length') return comments.length;
     return comments;
-  }
+  },
 });
 
 Template.ClubAdmin_Page.events({

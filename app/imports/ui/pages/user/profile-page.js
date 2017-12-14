@@ -44,7 +44,7 @@ Template.Profile_Page.helpers({
             });
   },
   currentView(text) {
-    if (Session.get('currentView') == text) {
+    if (Session.get('currentView') === text) {
       return 'active';
     }
     return false;
@@ -52,7 +52,7 @@ Template.Profile_Page.helpers({
   getClub(clubId) {
     const club = Clubs.findDoc(clubId);
     return club;
-  }
+  },
 });
 
 
@@ -99,7 +99,7 @@ Template.Profile_Page.events({
     const clubId = event.target.id;
     const profile = Profiles.findDoc(FlowRouter.getParam('username'));
     const club = Clubs.findDoc(clubId);
-    Profiles.update({_id: profile._id},{$pull: {clubsLiked: clubId}});
-    Clubs.update({_id: club._id}, {$set: {likes: club.likes - 1}});
-  }
+    Profiles.update({ _id: profile._id }, { $pull: { clubsLiked: clubId } });
+    Clubs.update({ _id: club._id }, { $set: { likes: club.likes - 1 } });
+  },
 });

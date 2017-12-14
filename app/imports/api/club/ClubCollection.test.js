@@ -11,7 +11,7 @@ if (Meteor.isServer) {
   describe('ClubCollection', function testSuite() {
     const interestName = 'Software Engineering';
     const interestDescription = 'Tools for software development';
-    const username = 'jordanoo'
+    const username = 'jordanoo';
     const clubName = 'johnson';
     const clubDescription = 'I have been a professor of computer science at UH since 1990.';
     const interests = [interestName];
