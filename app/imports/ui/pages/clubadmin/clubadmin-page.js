@@ -60,13 +60,14 @@ Template.ClubAdmin_Page.helpers({
 Template.ClubAdmin_Page.events({
   'submit .clubadmin-data-form'(event, instance) {
     event.preventDefault();
-    const clubName = event.target.ClubName.value;
+    console.log(event.target);
+    const clubName = event.target.Name.value;
     const username = FlowRouter.getParam('username'); // schema requires username.
     const picture = event.target.Picture.value;
     const twitter = event.target.Twitter.value;
     const facebook = event.target.Facebook.value;
     const instagram = event.target.Instagram.value;
-    const clubDescription = event.target.ClubDescription.value;
+    const clubDescription = event.target.Description.value;
     const selectedInterests = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
     const interests = _.map(selectedInterests, (option) => option.value);
 
