@@ -23,7 +23,7 @@ class ClubCollection extends BaseCollection {
       clubName: { type: String, optional: true },
       // Remainder are optional
       clubDescription: { type: String, optional: true },
-      likes: { type: Number, optional: true},
+      likes: { type: Number, optional: true },
       interests: { type: Array, optional: true },
       'interests.$': { type: String },
       picture: { type: SimpleSchema.RegEx.Url, optional: true },

@@ -13,7 +13,6 @@ Template.ProfilePage_Page.onCreated(function onCreated() {
   this.subscribe(Profiles.getPublicationName());
   this.subscribe(Clubs.getPublicationName());
   this.subscribe(Comments.getPublicationName());
-
 });
 
 Template.ProfilePage_Page.helpers({
@@ -31,7 +30,7 @@ Template.ProfilePage_Page.helpers({
   getClub(clubId) {
     const club = Clubs.findDoc(clubId);
     return club;
-  }
+  },
 });
 
 Template.ProfilePage_Page.events({

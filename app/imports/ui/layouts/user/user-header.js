@@ -5,13 +5,12 @@ import { Profiles } from '/imports/api/profile/ProfileCollection';
 
 
 let user;
-let club;
 
 Template.User_Header.onCreated(function onCreated() {
   this.subscribe(Profiles.getPublicationName());
   this.getProfile = function(name) {
-    return Profiles._collection.findOne({username: name});
-  }
+    return Profiles._collection.findOne( { username: name } );
+  };
   this.username = FlowRouter.getParam('username');
 });
 
