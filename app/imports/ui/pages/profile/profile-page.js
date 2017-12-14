@@ -19,8 +19,8 @@ Template.ProfilePage_Page.onCreated(function onCreated() {
 Template.ProfilePage_Page.helpers({
   profile() {
     const profile = Profiles.findDoc(FlowRouter.getParam('profileId'));
-    if (!profile.image) {
-      profile.image = 'https://semantic-ui.com/images/avatar2/large/matthew.png';
+    if (!profile.picture) {
+      profile.picture = 'https://semantic-ui.com/images/avatar2/large/matthew.png';
     }
     return profile;
   },
