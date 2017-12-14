@@ -99,4 +99,8 @@ Template.ClubAdmin_Page.events({
     const target = $(event.target);
     Comments.removeIt(target.data().commentid);
   },
+  'click .profileId'(event, instance) {
+    const user = FlowRouter.getParam('username');
+    FlowRouter.go("/"+ user + "/profile/" + event.currentTarget.text);
+  }
 });
