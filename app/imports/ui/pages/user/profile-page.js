@@ -102,4 +102,9 @@ Template.Profile_Page.events({
     Profiles.update({ _id: profile._id }, { $pull: { clubsLiked: clubId } });
     Clubs.update({ _id: club._id }, { $set: { likes: club.likes - 1 } });
   },
+  'click .clubCard'(event, instance) {
+    event.preventDefault();
+    const user = FlowRouter.getParam('username');
+    FlowRouter.go("/" + user + "/clubpage/" + event.currentTarget.id);
+  }
 });

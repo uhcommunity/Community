@@ -1,7 +1,7 @@
 <template name="Club_Card">
   {{#if Template.subscriptionsReady}}
   <div class="six wide column">
-    <div class="ui raised link centered card">
+    <div id={{club._id}} class="ui raised link centered card clubCard">
       <div class="content">
         <div class="header">{{club.clubName}}</div>
         <div class="meta">
