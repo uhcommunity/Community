@@ -2,44 +2,69 @@
 
   {{#if Template.subscriptionsReady}}
 
-  <div class="ui text container segment">
-    <div class="ui dividing header">
-      Club
+  <div class="ui grid container">
+    <div class="four wide column">
+      <div class="ui vertical pointing menu">
+        <a id="club" class="change item {{currentView 'club'}}">
+          Club
+        </a>
+        <a id="comments" class="change item {{currentView 'comments'}}">
+          Comments
+          <div id="comments" class="ui teal left label">{{comments 'length'}}</div>
+        </a>
+      </div>
     </div>
-    <form class="ui equal width form clubadmin-data-form {{ successClass }} {{ errorClass }}">
+    <div class="twelve wide column">
+      {{#if currentView 'club'}}
+        <div class="ui text container segment">
+          <div class="ui dividing header">
+            Club
+          </div>
+          <form class="ui equal width form clubadmin-data-form {{ successClass }} {{ errorClass }}">
 
-      <div class="field">
-        {{> Text_Form_Control label="ClubName" placeholder="Club Name" value=club.clubName errorMessage=(fieldError "clubName")}}
-      </div>
+            <div class="field">
+              {{> Text_Form_Control label="ClubName" placeholder="Club Name" value=club.clubName errorMessage=(fieldError "clubName")}}
+            </div>
 
-      <div class="field">
-        {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" value=club.picture errorMessage=(fieldError "picture")}}
-      </div>
+            <div class="field">
+              {{> Text_Form_Control label="Picture" placeholder="http://foo.com/shot.jpg" value=club.picture errorMessage=(fieldError "picture")}}
+            </div>
 
-      <div class="field">
-        {{> Select_Form_Control label="Interests" options=interests errorMessage=(fieldError "interests") multiple=true }}
-      </div>
+            <div class="field">
+              {{> Select_Form_Control label="Interests" options=interests errorMessage=(fieldError "interests") multiple=true }}
+            </div>
 
-      <div class="fields">
+            <div class="fields">
 
-        {{> Social_Network_Form_Control label="Github" icon="github" placeholder="gitclub" value=club.github errorMessage=(fieldError "github")}}
-        {{> Social_Network_Form_Control label="Facebook" icon="facebook" placeholder="clubbook" value=club.facebook errorMessage=(fieldError "facebook")}}
-        {{> Social_Network_Form_Control label="Instagram" icon="instagram" placeholder="instaclub" value=club.instagram errorMessage=(fieldError "instagram")}}
+              {{> Social_Network_Form_Control label="Facebook" icon="facebook" placeholder="clubbook" value=club.facebook errorMessage=(fieldError "facebook")}}
+              {{> Social_Network_Form_Control label="Instagram" icon="instagram" placeholder="instaclub" value=club.instagram errorMessage=(fieldError "instagram")}}
+              {{> Social_Network_Form_Control label="Twitter" icon="twitter" placeholder="tweetsta" value=club.twitter errorMessage=(fieldError "twitter")}}
 
-      </div>
+            </div>
 
-      {{> TextArea_Form_Control label="ClubDescription" value=club.clubDescription placeholder="Club Description" errorMessage=(fieldError "clubDescription")}}
+            {{> TextArea_Form_Control label="ClubDescription" value=club.clubDescription placeholder="Club Description" errorMessage=(fieldError "clubDescription")}}
 
 
-      <button class="ui primary button" type="submit">Submit</button>
-      {{#if displaySuccessMessage}}
-      <div class="ui success message">
-        <p>Club data successfully updated.</p>
-      </div>
-      {{/if}}
-    </form>
+            <button class="ui primary button" type="submit">Submit</button>
+            {{#if displaySuccessMessage}}
+            <div class="ui success message">
+              <p>Club data successfully updated.</p>
+            </div>
+            {{/if}}
+          </form>
+        </div>
+        {{/if}}
+        {{#if currentView 'comments'}}
+          <div class="ui threaded comments">
+            <h3 class="ui dividing header">Comments</h3>
+              {{#each comment in comments }}
+                 {{> Comment comment=comment }}
+              {{/each}}
+          </div>
+        {{/if}}
   </div>
+</div>
 
-  {{/if}}
+{{/if}}
 
 </template>

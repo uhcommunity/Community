@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 import { Clubs } from '/imports/api/club/ClubCollection';
 import { Interests } from '/imports/api/interest/InterestCollection';
+import { Comments } from '/imports/api/comment/CommentCollection';
 
 const displaySuccessMessage = 'displaySuccessMessage';
 const displayErrorMessages = 'displayErrorMessages';
@@ -11,10 +12,12 @@ const displayErrorMessages = 'displayErrorMessages';
 Template.ClubAdmin_Page.onCreated(function onCreated() {
   this.subscribe(Interests.getPublicationName());
   this.subscribe(Clubs.getPublicationName());
+  this.subscribe(Comments.getPublicationName());
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
   this.context = Clubs.getSchema().namedContext('ClubAdmin_Page');
+  Session.set('currentView', 'club');
 });
 
 Template.ClubAdmin_Page.helpers({
@@ -38,6 +41,19 @@ Template.ClubAdmin_Page.helpers({
           return { label: interest.name, selected: _.contains(selectedInterests, interest.name) };
         });
   },
+  currentView(text) {
+    if (Session.get('currentView') == text) {
+      return 'active';
+    }
+    return false;
+  },
+  comments(text) {
+    const club = Clubs.findDoc(FlowRouter.getParam('username'));
+    const comments = Comments.findAll({id: club._id});
+    comments.forEach((e) => e.owner = true);
+    if (text == 'length') return comments.length;
+    return comments;
+  }
 });
 
 Template.ClubAdmin_Page.events({
@@ -46,14 +62,14 @@ Template.ClubAdmin_Page.events({
     const clubName = event.target.ClubName.value;
     const username = FlowRouter.getParam('username'); // schema requires username.
     const picture = event.target.Picture.value;
-    const github = event.target.Github.value;
+    const twitter = event.target.Twitter.value;
     const facebook = event.target.Facebook.value;
     const instagram = event.target.Instagram.value;
     const clubDescription = event.target.ClubDescription.value;
     const selectedInterests = _.filter(event.target.Interests.selectedOptions, (option) => option.selected);
     const interests = _.map(selectedInterests, (option) => option.value);
 
-    const updatedClubData = { clubName, picture, github, facebook, instagram, clubDescription, interests,
+    const updatedClubData = { clubName, picture, twitter, facebook, instagram, clubDescription, interests,
       username };
 
     // Clear out any old validation errors.
@@ -73,5 +89,13 @@ Template.ClubAdmin_Page.events({
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
+  'click .change'(event, instance) {
+    event.preventDefault();
+    Session.set('currentView', event.target.id);
+  },
+  'click .remove'(event, instance) {
+    event.preventDefault();
+    const target = $(event.target);
+    Comments.removeIt(target.data().commentid);
+  },
 });
-
