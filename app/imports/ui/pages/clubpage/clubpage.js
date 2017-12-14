@@ -152,7 +152,7 @@ Template.ClubPage_Page.events({
       Session.set('clubLiked', false);
     }
   },
-  'click .author'(event, instance) {
+  'click .profileId'(event, instance) {
     const user = FlowRouter.getParam('username');
     FlowRouter.go("/"+ user + "/profile/" + event.currentTarget.text);
   }
